@@ -71,6 +71,10 @@ public class EnumSetsAndEnumMaps
 
         // all collections have a size() method that lets you get the current size of the collection
         System.out.println("Collection size: " + map.size());
+
+        if (map.containsKey(Days.THURSDAY)) {
+            System.out.println("Enum map contains the key for Thursday!");
+        }
     }
 }
 
