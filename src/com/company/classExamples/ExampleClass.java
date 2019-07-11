@@ -36,6 +36,11 @@ public class ExampleClass
     /**
      * This is a default constructor. A default constructor has no parameters/arguments. If there is nothing in
      * the () like below for ExampleClass(), then there are no parameters and it's a default constructor.
+     *
+     * Default constructors are automatically generated if you do not add one to a class. The only reason to manually add one
+     * (like below) is if you need to initialize some variables or other data before using the class.
+     *
+     * ExampleClass is also the return type (because when we call this constructor to create an ExampleClass object, it returns a new instance of an ExampleClass
      */
     public ExampleClass()
     {
