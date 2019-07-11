@@ -39,8 +39,9 @@ public class ExampleClass
      * This is a default constructor. A default constructor has no parameters/arguments. If there is nothing in
      * the () like below for ExampleClass(), then there are no parameters and it's a default constructor.
      *
-     * Default constructors are automatically generated if you do not add one to a class. The only reason to manually add one
-     * (like below) is if you need to initialize some variables or other data before using the class.
+     * Default constructors are automatically generated if you do not add a constructor to a class.
+     * However, if a constructor with parameters is added, then you must manually add a default constructor if you want to create an object that has no parameters.
+     * Although a default constructor takes no parameters, it can still initialize variables and other data important to the class (like below).
      *
      * ExampleClass is also the return type (because when we call this constructor to create an ExampleClass object, it returns a new instance of an ExampleClass
      */

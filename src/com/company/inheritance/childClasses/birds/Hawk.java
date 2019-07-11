@@ -10,6 +10,15 @@ import com.company.inheritance.interfaces.Prey;
  */
 public class Hawk extends Bird implements Predator {
 
+    public Hawk()
+    {
+    }
+
+
+    public Hawk(int age)
+    {
+        setAge(age);
+    }
 
     @Override
     public void fly() {

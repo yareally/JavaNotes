@@ -32,7 +32,8 @@ public class Maps
 
         // we put our own custom created class objects into map3
         map3.put("bear", new Mammal());
-        map3.put("red-tailed", new Hawk());
+        map3.put("red-tailed", new Hawk(7));
+
         // this will ignore adding this key/value because we already added it
         map3.putIfAbsent("bear", new Mammal());
 
@@ -45,7 +46,10 @@ public class Maps
         // remove the hawk from the hashMap
         Hawk hawk = (Hawk) map3.remove("red-tailed");
 
-
+        for (Map.Entry<String, AnimalInterface> animal : map3.entrySet()) {
+            System.out.println("Animal key: " + animal.getKey());
+            System.out.println("Animal age: " + animal.getValue().getAge());
+        }
     }
 
 }
