@@ -1,5 +1,7 @@
 package com.company.classExamples;
 
+import com.company.inheritance.childClasses.Mammal;
+
 import java.util.ArrayList;
 
 /**
@@ -61,6 +63,14 @@ public class ExampleClass
         id = ident;
         // populate the array list with some strings
         list = createList();
+
+        // creates a bear mammal object with an age of 3
+        Mammal bear = createMammal(3);
+        // call a static method (a method we can use without creating an instance of the object it resides in)
+        String mammalSound = Mammal.makeNoise();
+        // the following 2 lines do the same thing:
+        System.out.println(mammalSound);
+        System.out.println(Mammal.makeNoise());
     }
 
 
@@ -79,6 +89,18 @@ public class ExampleClass
         list.add("yet another item");
 
         return list;
+    }
+
+    public void returnsNothing(int someValue)
+    {
+        someValue++;
+        // this function returns nothing because the return type is void
+    }
+
+    public Mammal createMammal(int age) {
+        // you can return any object type from a function, but it has to be declared as the return type in order to return it
+        // this returns a new mammal with the given age passed in as a parameter.
+        return new Mammal(age);
     }
 
     public int getId()

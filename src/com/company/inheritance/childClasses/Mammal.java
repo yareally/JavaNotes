@@ -106,4 +106,26 @@ public class Mammal implements AnimalInterface, Food {
     public void grow(Food food) {
         mammal.grow(food);
     }
+
+    /**
+     * This is a static method. We can call this from anywhere without creating an instance of mammal first.
+     * Static methods can only use other methods or variables that are also marked as static.
+     * Variables and methods not marked as static are called instance methods and variables. Because they require
+     * an instance of the class object they reside in to be created before used.
+     *
+     * Why not make every method static? Because static methods cannot be inherited, overridden or implemented from an interface.
+     * Thus, they are not very reusable.
+     *
+     * However, if a method is self contained and does not need to ever be inherited, overridden or implemented from an interface, then making it static is okay.
+     * @see com.company.util.Helpers for examples of good static method usage.
+     *
+     * Examples of static methods built into java are System.out.println("") and System.out.print("")
+     *
+     * @see com.company.classExamples.ExampleClass for static method usage.
+     * @return some random sound a mammal might make
+     */
+    public static String makeNoise()
+    {
+        return "bark bark";
+    }
 }
