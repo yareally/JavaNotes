@@ -41,6 +41,11 @@ public class Maps
 
         // gets the animal object for the key "bear"
         AnimalInterface bear = map3.get("bear");
+
+        // remove the hawk from the hashMap
+        Hawk hawk = (Hawk) map3.remove("red-tailed");
+
+
     }
 
 }
