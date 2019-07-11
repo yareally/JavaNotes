@@ -6,6 +6,8 @@ import java.util.Map;
 
 /**
  * Remember that sets and maps are unordered lists.
+ * EnumSets and EnumMaps are a special set and map that use an enum as the value for the set or an enum for the value of the hashmap
+ *
  * You can only directly access a value from a set if you know the value ahead of time
  *
  * You can only directly access a value from a map if you know the key that points to the value
