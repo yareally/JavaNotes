@@ -3,6 +3,7 @@ package com.company.collectionExamples;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Remember that sets and maps are unordered lists.
@@ -25,15 +26,18 @@ public class EnumSetsAndEnumMaps
     // puts all the days into this enum set
     EnumSet<Days> daysOfWeek = EnumSet.allOf(Days.class);
     // puts no days into this enum set
-    EnumSet<Days> noDays = EnumSet.noneOf(Days.class);
+    EnumSet<Days> noDays     = EnumSet.noneOf(Days.class);
     // puts monday to friday (inclusive) into this enum set
-    EnumSet<Days> weekdays = EnumSet.range(Days.MONDAY, Days.FRIDAY);
+    EnumSet<Days> weekdays   = EnumSet.range(Days.MONDAY, Days.FRIDAY);
     // puts the days of the week not in weekdays into this enum set
-    EnumSet<Days> weekends = EnumSet.complementOf(weekdays);
+    // EnumSet implements the set interface, so you can also just refer to it as a Set like so:
+    Set<Days>     weekends   = EnumSet.complementOf(weekdays);
 
     // when using a collction, you have to put Integer/Long/Boolean/Float/Double instead of int/long/boolean/float/double
     // because Integer is a wrapper object around the primitive type of int. Collections can only store objects, no primitves.
     EnumMap<Days, Integer> map = new EnumMap<>(Days.class);
+    // EnumMap implements the Map interface, so you can also refer to it as a Map like so:
+    Map<Days, Integer> map2 = new EnumMap<>(Days.class);
 
     public void UseEnumSet()
     {
