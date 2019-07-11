@@ -73,7 +73,7 @@ public class EnumSetsAndEnumMaps
         System.out.println("Collection size: " + map.size());
     }
 }
-}
+
 
 enum Days
 {
