@@ -9,6 +9,10 @@ import java.util.Set;
  * Remember that sets and maps are unordered lists.
  * EnumSets and EnumMaps are a special set and map that use an enum as the value for the set or an enum for the value of the hashmap
  *
+ * All sets (including EnumSets) are composed of unique values. Adding a duplicate value will do nothing
+ * All maps (including EnumMaps) are composed of unique keys. Adding a duplicate key will either do nothing overwrite the current value for the key (depending on the method you call to put the key/value into the map)
+ * The values in a map do not have to be unique, just the keys.
+ *
  * You can only directly access a value from a set if you know the value ahead of time
  *
  * You can only directly access a value from a map if you know the key that points to the value
@@ -47,6 +51,15 @@ public class EnumSetsAndEnumMaps
         System.out.println("noDays: " + noDays);
         // puts monday into the no days enum set
         noDays.add(Days.MONDAY);
+
+        // this does nothing because monday was already added
+        boolean added = noDays.add(Days.MONDAY);
+
+        if (!added) {
+            // added is the result returned from trying to add to the set. It returns true if it could be added. False otherwise.
+            System.out.println("Could not add Monday again, because it was already in the set");
+        }
+
         // removes monday from the no days enum set
         noDays.remove(Days.MONDAY);
 
@@ -66,9 +79,13 @@ public class EnumSetsAndEnumMaps
         // add some keys and values to the enum map
         // Days.MONDAY is a key, 1 is a value
         map.put(Days.MONDAY, 1);
+        map.put(Days.TUESDAY, 0);
+        // this will overwrite the value associated with the key tuesday, setting it to 2
         map.put(Days.TUESDAY, 2);
         map.put(Days.WEDNESDAY, 3);
         map.put(Days.THURSDAY, 4);
+        // this will do nothing, because we already have a key added for thursday
+        map.putIfAbsent(Days.THURSDAY, 5);
 
         // print the map
         for (EnumMap.Entry m : map.entrySet()) {

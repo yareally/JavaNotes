@@ -15,6 +15,8 @@ import java.util.List;
  * If you plan to add/remove a lot of elements from somewhere other than the start/end and do not need to access
  * random elements in the middle based on their index, then a linked list might be a better collection option.
  *
+ * You can store any type of object in a collection (including class objects you create yourself)
+ *
  * @author Wes Lanning
  * @version 2019-07-11
  */
@@ -50,6 +52,9 @@ public class ArrayLists
         // takes stringArray4 and copies it to a fixed array with 20 buckets of data instead of 10
         var stringArray5 = Arrays.copyOf(stringArray4, 20);
         System.out.println("Size of stringArray5: " + stringArray5.length);
+
+        // convert array to an arrayList
+        List<String> arrayToList = Arrays.asList(stringArray4);
     }
 
     public void useArrayList()
