@@ -10,6 +10,21 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Main {
+    // this is a class variable that is defined as being constant (can never change)
+    // any class variable with static + final on it is a constant in java
+    private static final String constant = "this will never change";
+
+    // this is a static string. That means that all objects created from this class (class Main) will all
+    // share the same instance of the oneInstance variable. Usually this isn't a good idea and only has a few use cases.
+    // Why? Because modifying oneInstance in one object that contains it, will also modify it in all other objects that contain it.
+    // However, there is only ever one instance of a main class, so it's okay to do this here and the only way to define class variables in the main class
+    private static String oneInstance = "there can only be one";
+
+    // static on a method is not quite the same as static on a class variable. There is only one instance of the method like there is for class variables.
+    // However, the a static method is self-contained and will not cause side effects when used, unlike a static class variable.
+    // Static methods do not require an object type of the class they're contained in to be invoked/executed.
+    // This is because memory for them is allocated ahead of time.
+    // You can invoke a static method like this: Main.createList();
 
     public static void main(String[] args) {
 
@@ -28,7 +43,7 @@ public class Main {
 
         // this is equivalent to the list above, but more concise:
         List<AnimalInterface> moreAnimals = List.of(new Mammal(), new Mammal(3), new Hawk());
-        // -----------------------------------------------
+        // ----------INHERITANCE / POLYMORPHISM / COMPOSITION
         // you could also define the animals as variables and add them to a list:
         // equivalent to the above lists, but with named variables added instead of anonymous ones:
 
@@ -81,6 +96,7 @@ public class Main {
         System.out.println("bear age (after bear age set to 10): " + bear.getAge());
         System.out.println("ape age (after bear age set to 10): " + ape.getAge());
 
+        // ------------- STRINGS -------------------
         // these are the same
         String string = "test";
         String string2 = new String("test");
@@ -100,6 +116,7 @@ public class Main {
         // reset the value for examples below
         string = "test";
 
+        // -------- CONDITIONAL STATEMENTS (if/else if/ else / switch)
         if (string.equals(string2) || string.equals(string3)) {
             // do stuff if string equals string2 or string equals string3
         }
@@ -123,6 +140,19 @@ public class Main {
         }
         else {
             // do something if it's not equal to "test" or "test 2"
+        }
+
+        // this is the same as the if/else below it
+        String result = string.equals("test") // the condition to compare
+            ? "matches" // the if part
+            : "does not match"; // the else part
+        String result2 = "";
+
+        if (string.equals("test")) {
+            result2 = "matches";
+        }
+        else {
+            result2 = "does not match";
         }
 
         // this is equivalent to the if/else right above
@@ -156,6 +186,7 @@ public class Main {
                 // do something if it's not equal to "test" or "test 2"
         }
 
+        // -------- LOOPS -------------------
         // use the method we created below to return a list of strings
         ArrayList<String> list = createList();
 
@@ -195,6 +226,7 @@ public class Main {
         } while (j < list.size()); // requires a semi colon at the end, unlike other loops above
     }
 
+    // -------- RETURNING THINGS FROM METHODS ---------
 
     public static String concatStrings(String a, String b) {
         // all methods in the main class have to have static on them, because the main method has static on it
