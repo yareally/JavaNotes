@@ -1,10 +1,8 @@
-package com.company.childClasses;
+package com.company.inheritance.childClasses;
 
-import com.company.interfaces.Food;
-import com.company.interfaces.PlantInterface;
-import com.company.interfaces.Predator;
-import com.company.interfaces.Prey;
-import com.company.parentClasses.Plant;
+import com.company.inheritance.interfaces.Predator;
+import com.company.inheritance.interfaces.Prey;
+import com.company.inheritance.parentClasses.Plant;
 import com.company.util.Helpers;
 
 /**

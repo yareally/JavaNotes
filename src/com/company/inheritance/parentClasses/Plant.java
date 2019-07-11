@@ -1,31 +1,24 @@
-package com.company.parentClasses;
+package com.company.inheritance.parentClasses;
 
-import com.company.interfaces.AnimalInterface;
-import com.company.interfaces.Food;
+import com.company.inheritance.interfaces.Food;
+import com.company.inheritance.interfaces.PlantInterface;
 import com.company.util.Helpers;
 
 /**
  * @author Wes Lanning
  * @version 2019-07-10
  */
-public class Animal implements AnimalInterface, Food {
-    private int currentHitPoints;
-    private int maxHitPoints;
-    private int experiencePoints;
-    private int nextLevelExperiencePoints = 100;
-    private int currentLevel              = 1;
-    private int ageInYears = 0;
+public class Plant implements PlantInterface, Food {
 
-    public Animal()
-    {
+    protected int currentHitPoints = 0;
+    protected int maxHitPoints = 0;
+    protected int experiencePoints = 0;
+    protected int nextLevelExperiencePoints = 100;
+    protected int currentLevel              = 1;
+    protected int ageInYears              = 0;
 
-    }
+    public Plant() {
 
-    @Override
-    public void sleep() {
-        currentHitPoints = currentHitPoints + maxHitPoints > maxHitPoints
-            ? maxHitPoints
-            : Helpers.getRandom(maxHitPoints - currentHitPoints, maxHitPoints);
     }
 
     @Override

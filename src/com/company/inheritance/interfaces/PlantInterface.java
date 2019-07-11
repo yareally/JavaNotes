@@ -1,4 +1,4 @@
-package com.company.interfaces;
+package com.company.inheritance.interfaces;
 
 /**
  * @author Wes Lanning

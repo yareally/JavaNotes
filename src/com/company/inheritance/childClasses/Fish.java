@@ -1,8 +1,8 @@
-package com.company.childClasses;
+package com.company.inheritance.childClasses;
 
-import com.company.interfaces.AnimalInterface;
-import com.company.interfaces.Food;
-import com.company.parentClasses.Animal;
+import com.company.inheritance.interfaces.AnimalInterface;
+import com.company.inheritance.interfaces.Food;
+import com.company.inheritance.parentClasses.Animal;
 
 /**
  * @author Wes Lanning

@@ -1,8 +1,8 @@
-package com.company.childClasses.birds;
+package com.company.inheritance.childClasses.birds;
 
-import com.company.childClasses.Bird;
-import com.company.interfaces.Predator;
-import com.company.interfaces.Prey;
+import com.company.inheritance.childClasses.Bird;
+import com.company.inheritance.interfaces.Predator;
+import com.company.inheritance.interfaces.Prey;
 
 /**
  * @author Wes Lanning

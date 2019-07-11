@@ -1,39 +1,26 @@
 package com.company;
 
-import com.company.childClasses.Mammal;
-import com.company.childClasses.birds.Hawk;
-import com.company.interfaces.AnimalInterface;
-import com.company.parentClasses.Animal;
+import com.company.inheritance.childClasses.Mammal;
+import com.company.inheritance.childClasses.birds.Hawk;
+import com.company.inheritance.interfaces.AnimalInterface;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Main {
-    // this is a class variable that is defined as being constant (can never change)
-    // any class variable with static + final on it is a constant in java
-    private static final String constant = "this will never change";
 
-    // this is a static string. That means that all objects created from this class (class Main) will all
-    // share the same instance of the oneInstance variable. Usually this isn't a good idea and only has a few use cases.
-    // Why? Because modifying oneInstance in one object that contains it, will also modify it in all other objects that contain it.
-    // However, there is only ever one instance of a main class, so it's okay to do this here and the only way to define class variables in the main class
-    private static String oneInstance = "there can only be one";
-
-    // static on a method is not quite the same as static on a class variable. There is only one instance of the method like there is for class variables.
-    // However, the a static method is self-contained and will not cause side effects when used, unlike a static class variable.
-    // Static methods do not require an object type of the class they're contained in to be invoked/executed.
-    // This is because memory for them is allocated ahead of time.
-    // You can invoke a static method like this: Main.createList();
 
     public static void main(String[] args) {
 
-        List<String> stringList = new ArrayList<>();
+        // you can either define this as
+        // ArrayList<String> stringList = new ArrayList<>();
+        // or use "var" to cut down on code (in java 9 and above)
+        var stringList = new ArrayList<String>();
         stringList.add("item");
 
         // create a list, add some animals to a list
         // lists can be resized
-        List<AnimalInterface> animals = new ArrayList<>();
+        var animals = new ArrayList<AnimalInterface>();
         // add a default mammal
         animals.add(new Mammal());
         // add a mammal with an age of 3
@@ -42,25 +29,25 @@ public class Main {
         animals.add(new Hawk());
 
         // this is equivalent to the list above, but more concise:
-        List<AnimalInterface> moreAnimals = List.of(new Mammal(), new Mammal(3), new Hawk());
+        var moreAnimals = List.of(new Mammal(), new Mammal(3), new Hawk());
         // ----------INHERITANCE / POLYMORPHISM / COMPOSITION
         // you could also define the animals as variables and add them to a list:
         // equivalent to the above lists, but with named variables added instead of anonymous ones:
 
         // same as animals.add(new Mammal());
-        Mammal animal = new Mammal();
+        var animal = new Mammal();
         animals.add(animal);
         // same as animals.add(new Mammal(3));
-        Mammal threeYearOldAnimal = new Mammal(3);
+        var threeYearOldAnimal = new Mammal(3);
         animals.add(threeYearOldAnimal);
         // same as animals.add(new Hawk());
-        Hawk hawk = new Hawk();
+        var hawk = new Hawk();
         animals.add(hawk);
 
         // create an array of strings that holds 10 strings
         // arrays cannot be resized. You have to copy the items in the array to a larger array
         // cannot remove items from an array, must copy them to a new array
-        String[] arrayOfStrings = new String[10];
+        var arrayOfStrings = new String[10];
         arrayOfStrings[0] = "test";
         arrayOfStrings[1] = "test 2";
         arrayOfStrings[2] = "test 3";
@@ -73,9 +60,9 @@ public class Main {
         // Classname is the name of the class/interface for the object you wish to create
         // variable name is whatever you want to call your object
         // new tells the compiler that you are creating an object
-        Mammal bear = new Mammal();
+        var bear = new Mammal();
         // create ape with setting its age
-        Mammal ape = new Mammal(1);
+        var ape = new Mammal(1);
 
         System.out.println("bear age: " + bear.getAge());
         System.out.println("ape age: " + ape.getAge());
@@ -98,9 +85,9 @@ public class Main {
 
         // ------------- STRINGS -------------------
         // these are the same
-        String string = "test";
-        String string2 = new String("test");
-        String string3 = string2; // creates a copy of the string
+        var string = "test";
+        var string2 = new String("test");
+        var string3 = string2; // creates a copy of the string
         string2 = ""; // string3 is not modified because it's a copy (unlike bear and ape in the example above)
 
         System.out.println(string2);
@@ -143,10 +130,10 @@ public class Main {
         }
 
         // this is the same as the if/else below it
-        String result = string.equals("test") // the condition to compare
+        var result = string.equals("test") // the condition to compare
             ? "matches" // the if part
             : "does not match"; // the else part
-        String result2 = "";
+        var result2 = "";
 
         if (string.equals("test")) {
             result2 = "matches";
@@ -198,7 +185,7 @@ public class Main {
         // loop through the list in another way:
         // variables defined outside of the loop can be used inside the loop and after the end of the loop (after the {} )
         // variables defined within the loop cannot be used outside of the loop (after the {} )
-        for (int i = 0; i < list.size(); i++) {
+        for (var i = 0; i < list.size(); i++) {
             // this will get the item from the previous iteration of the loop
             String lastItem = i == 0 ? list.get(0) : list.get(i - 1);
             // this will print the previous item
@@ -241,7 +228,7 @@ public class Main {
     public static ArrayList<String> createList()
     {
         // let's create a list and then return it for use elsewhere
-        ArrayList<String> list = new ArrayList<>();
+        var list = new ArrayList<String>();
         list.add("item");
         list.add("another item");
         list.add("yet another item");
