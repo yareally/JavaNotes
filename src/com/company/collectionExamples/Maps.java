@@ -46,6 +46,8 @@ public class Maps
         // remove the hawk from the hashMap
         Hawk hawk = (Hawk) map3.remove("red-tailed");
 
+        System.out.println("Hawk with age " + hawk.getAge() + " was removed from the map");
+
         // loop through each key/value pair in the hashmap
         for (var animal : map3.entrySet()) {
             System.out.println("Animal key: " + animal.getKey());
