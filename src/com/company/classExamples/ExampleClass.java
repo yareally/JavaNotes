@@ -23,19 +23,39 @@ public class ExampleClass
     // e.g. public int getId() {...} and public void setId(int id) {...} (see getter/setter below)
     private int id = 0;
 
+    // protected means that you can access this variable from within ExampleClass or any class that inherits (extends) ExampleClass
+    protected String name = "";
 
+    // final means that this value is read only once it's initialized.
+    // class variables defined as final can only be initialized in a constructor or inline where the variable is defined.
+    // ex: protected final String notes = "some notes here"
+    protected final String notes;
+
+    private ArrayList<String> list;
 
     /**
      * This is a default constructor. A default constructor has no parameters/arguments. If there is nothing in
      * the () like below for ExampleClass(), then there are no parameters and it's a default constructor.
      */
-    public ExampleClass(String message, int ident)
+    public ExampleClass()
+    {
+        // because notes is read only once it's set in the constructor, it must be defined in all constructors in the class
+        notes = "";
+        // populate the array list with some strings
+        list = createList();
+    }
+
+    public ExampleClass(String message, String notes, int ident)
     {
         // "this" is required in front of message, because the parameter message has the same name as the class variable called message
         // "this" refers to the class variable message while not putting "this" in front of the parameter denotes you are referring to the parameter and not the class variable
         this.message = message;
+        // set the read only value here
+        this.notes = notes;
         // because id and ident are not the same name, "this" is not required in front of id
         id = ident;
+        // populate the array list with some strings
+        list = createList();
     }
 
 
@@ -64,5 +84,9 @@ public class ExampleClass
     public void setId(int id)
     {
         this.id = id;
+    }
+
+    public String getNotes() {
+        return notes;
     }
 }
