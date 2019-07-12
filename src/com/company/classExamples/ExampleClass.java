@@ -61,6 +61,8 @@ public class ExampleClass
     {
         // "this" is required in front of message, because the parameter message has the same name as the class variable called message
         // "this" refers to the class variable message while not putting "this" in front of the parameter denotes you are referring to the parameter and not the class variable
+        // in intellij, you can verify this by ctrl + left clicking on each variable. That will show you which one it is referring to
+        // you can also color your class variables different from the parameters to easily tell this as well in any editor or IDE
         this.message = message;
         // set the read only value here
         this.notes = notes;
