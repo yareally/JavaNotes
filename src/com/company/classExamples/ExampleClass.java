@@ -14,11 +14,15 @@ public class ExampleClass
     // any class variable with static + final on it is a constant in java
     private static final String constant = "this will never change";
 
-    // this is a static string. That means that all objects created from this class (class Main) will all
-    // share the same instance of the oneInstance variable. Usually this isn't a good idea and only has a few use cases.
-    // Why? Because modifying oneInstance in one object that contains it, will also modify it in all other objects that contain it.
-    // However, there is only ever one instance of a main class, so it's okay to do this here and the only way to define class variables in the main class
+    // this is a static string. That means that all objects created from this class (class ExampleClass) will all share the same instance of the oneInstance variable.
     private static String oneInstance = "there can only be one";
+    // Usually this isn't a good idea and only has a few use cases.
+    // Why? Because modifying oneInstance in one object that contains it, will also modify it in all other objects that contain it.
+
+    // Why do we make everything static in the main class though?
+    // Because there is only 1 instance ever of the main class, so it's okay to do this.
+    // It's also the only way to define class wide variables or methods in the main class
+
     // public access means that you can access this variable from anywhere you are using an instance of ExampleClass
     public String message = "";
     // private means that you can only access id from within the ExampleClass. In order to use it elsewhere, you would have to make a getter and a setter
