@@ -1,8 +1,11 @@
 package com.company.collectionExamples;
 
-import java.util.ArrayList;
+import com.company.inheritance.childClasses.Mammal;
+import com.company.inheritance.childClasses.birds.Hawk;
+import com.company.inheritance.interfaces.AnimalInterface;
+
+import java.util.*;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * ArrayLists are a special type of array that will grow or shrink if you add or remove items from it.
@@ -20,7 +23,7 @@ import java.util.List;
  * @author Wes Lanning
  * @version 2019-07-11
  */
-public class ArrayLists
+public class ListsAndArrays
 {
     // create a list of strings
     private ArrayList<String> stringList = new ArrayList<>();
@@ -55,6 +58,13 @@ public class ArrayLists
 
         // convert array to an arrayList
         List<String> arrayToList = Arrays.asList(stringArray4);
+        // you can also put your own created objects into fixed arrays:
+        var animalArray = new AnimalInterface[10];
+        // create a hawk and store it in the 0 position of the fixed array
+        animalArray[0] = new Hawk(1);
+        // createa a mammal and store it in the last position of the fixed array
+        animalArray[9] = new Mammal(4);
+
     }
 
     public void useArrayList()
@@ -87,5 +97,29 @@ public class ArrayLists
         for (String item : stringListAsArray) {
             System.out.println("Next item in stringListAsArray: " + item);
         }
+
+        if (stringList.contains("1")) {
+            // if you have to randomly check an array a lot for a value, it's probably best not to use an array
+            // why? because behind the scenes it's looping over every position in the array until it finds the value that matches "1"
+            // It has to do this because java doesn't know what index the value is at unless you can tell it the position.
+
+            // With a hashset or hashmap, it keeps a reference to the position the value is located for you, but does not keep them in a specific order (unlike a list or array)
+
+            // There is an order set and ordered map, but those are no as efficient as the unordered hashmap and hashset.
+            // They do have some use cases though, because they are still faster in some cases than arrays or lists.
+        }
+
+        // if you converted this list to a set, it will look up the value in real-time (no loop):
+        if (new HashSet<>(stringList).contains("1")) {
+            // this will instantly find the value "1" instead of looping over the collection to find it
+        }
+
+        // this is the same as writing if (stringList.size() > 0)
+        if (!stringList.isEmpty()) {
+
+        }
+
+        // this will change the value at position 2 to "100"
+        stringList.set(2, "100");
     }
 }
