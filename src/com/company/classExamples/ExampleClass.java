@@ -108,7 +108,8 @@ public class ExampleClass
         // Since java does create a copy of the reference when passing the variable to a method, you can point the copied reference to a new reference to get around this issue like so:
         stringArray = new String[5];
         // the above line will point the copied reference to a new place in memory and thus no longer affect the original array passed into this method
-        // this will not affect the original array since we pointed the copied reference to a new array in memory.
+
+        // The line below will not affect the original array since we pointed the copied reference to a new array in memory.
         stringArray[1] = "";
 
         // This function returns nothing because the return type is void
