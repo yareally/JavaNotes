@@ -99,7 +99,7 @@ public class ListsAndArrays
         }
 
         if (stringList.contains("1")) {
-            // if you have to randomly check an array a lot for a value, it's probably best not to use an array
+            // if you have to randomly check an array often for a specific value, it's probably best not to use an array
             // why? because behind the scenes it's looping over every position in the array until it finds the value that matches "1"
             // It has to do this because java doesn't know what index the value is at unless you can tell it the position.
 
