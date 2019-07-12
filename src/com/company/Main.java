@@ -7,10 +7,32 @@ import com.company.inheritance.interfaces.AnimalInterface;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+/**
+ * Useful intellij idea commands
+ *
+ * command + d = duplicate current line cursor is on
+ * ctrl + q = display documentation for whatever the cursor is currently on
+ * ctrl + p = bring up parameter list for the method the cursor is on
+ * ctrl + alt + l = reformat current file
+ * ctrl + left click = go to implementation of the method/variable/class/object you left clicked on
+ *
+ * ctrl + t = update code from remote git repo
+ * ctrl + k = commit your code to local git repo
+ * ctrl + shift + k = push your code to remote git repo
+ *
+ * shift + f6 = rename whatever the cursor is on
+ * ctrl + enter = finish the line you are currently tying out. this will add closing ), } and ; if needed
+ *
+ * alt + enter = brings up a fix menu for whatever your cursor is on.
+ * Will give auto fixes for errors or warnings if possible (this is also the menu that pops up when clicking on the light bulb
+ *
+ * When in doubt on what to do, type the variable and a . to bring up all the methods you can do on a variable. Then read through the documentation for each.
+ */
+public class Main
+{
 
-
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         // you can either define this as
         // ArrayList<String> stringList = new ArrayList<>();
@@ -147,11 +169,11 @@ public class Main {
             case "test":
                 System.out.println("test match");
                 // do something if string is equal to "test"
-            break;
+                break;
             case "test 2":
                 System.out.println("test 2");
                 // do something if string is equal to "test 2"
-            break;
+                break;
             default:
                 System.out.println("default, no match");
                 // do something if it's not equal to "test" or "test 2"
@@ -215,7 +237,8 @@ public class Main {
 
     // -------- RETURNING THINGS FROM METHODS ---------
 
-    public static String concatStrings(String a, String b) {
+    public static String concatStrings(String a, String b)
+    {
         // all methods in the main class have to have static on them, because the main method has static on it
         // you could do this:
         // String result = a + b;

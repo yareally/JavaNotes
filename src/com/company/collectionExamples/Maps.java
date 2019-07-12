@@ -7,6 +7,8 @@ import com.company.inheritance.interfaces.AnimalInterface;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.System.out;
+
 /**
  * Maps are a collection of unique keys where each key points to a non-unique value. A real life example of a map
  * would be a dictionary. A dictionary is composed of unique words (which are keys) and each word points to a definition (the value).
@@ -40,18 +42,25 @@ public class Maps
         // this will overwrite the current bear key/value with a new value. That is the difference between put and putIfAbsent
         map3.put("bear", new Mammal(3));
 
+        if (map3.containsKey("bear")) {
+            // see if it contains a bear as a key
+            out.println("map3 contains a bear, oh my!");
+        }
+
         // gets the animal object for the key "bear"
         AnimalInterface bear = map3.get("bear");
 
         // remove the hawk from the hashMap
         Hawk hawk = (Hawk) map3.remove("red-tailed");
 
-        System.out.println("Hawk with age " + hawk.getAge() + " was removed from the map");
+        out.println("Hawk with age " + hawk.getAge() + " was removed from the map");
 
         // loop through each key/value pair in the hashmap
         for (var animal : map3.entrySet()) {
-            System.out.println("Animal key: " + animal.getKey());
-            System.out.println("Animal age: " + animal.getValue().getAge());
+            out.println("Animal key: " + animal.getKey());
+            // does the same thing as println, only no need for + to concat things
+            // %d == number placeholder for the result of getAge(), %n == new line at end of the string
+            out.printf("Animal age: %d%n", animal.getValue().getAge());
         }
     }
 
