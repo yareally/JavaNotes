@@ -92,10 +92,27 @@ public class ExampleClass
         return list;
     }
 
-    public void returnsNothing(int someValue)
+    public void returnsNothing(int someValue, String[] stringArray)
     {
-        someValue++;
-        // this function returns nothing because the return type is void
+        someValue++; // this also does nothing, because someValue is passed by value and not by reference
+        // In other words, it creates a copy when passed by value.
+        // However, it points to the original variable where you called this method if the variable is passed as a reference to the original
+        // Anything other than int, short, float, long, double, string, boolean, enum is passed by reference
+        // Basically that means any collection, java provided classes/objects and your own classes/objects are all passed by reference
+        // Thus, be careful about modifying them in methods you pass anything by reference to, because it could cause unintended side effects
+
+        // since arrays are passed by reference, this will also affect the array after returning back to where we called this method.
+        // this will wipe out whatever was in position 0:
+        stringArray[0] = "";
+
+        // Since java does create a copy of the reference when passing the variable to a method, you can point the copied reference to a new reference to get around this issue like so:
+        stringArray = new String[5];
+        // the above line will point the copied reference to a new place in memory and thus no longer affect the original array passed into this method
+        // this will not affect the original array since we pointed the copied reference to a new array in memory.
+        stringArray[1] = "";
+
+        // This function returns nothing because the return type is void
+        // In other words, there's a hidden implied return; statement at the end of void methods
     }
 
     public Mammal createMammal(int age) {
