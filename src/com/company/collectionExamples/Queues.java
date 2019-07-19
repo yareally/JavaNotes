@@ -169,6 +169,8 @@ public class Queues
         var cleveland = new City("Cleveland", 150.0d);
         var cincy = new City("Cincinnati", 110.0d);
 
+        // City::compareTo is just shorthand for telling it that we wish to use our custom compare
+        // when we compare the distance between 2 cities
         var cities = new PriorityQueue<City>(City::compareTo);
         cities.add(startingCity);
         cities.add(zanesville);
