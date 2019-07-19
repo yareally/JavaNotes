@@ -161,85 +161,76 @@ public class Queues
 
         // lets do a fancier example with our cities:
 
-        PriorityQueue cities
+        var startingCity = new City("Columbus", 0.0d);
+        var zanesville = new City("Zanesville", 60.0d);
+        var pittsburgh = new City("Pittsburgh", 300.0d);
+        var philly = new City("Philadelphia", 600.0d);
+        var detroit = new City("Detroit", 200.0d);
+        var cleveland = new City("Cleveland", 150.0d);
+        var cincy = new City("Cincinnati", 110.0d);
 
+        var cities = new PriorityQueue<City>(City::compareTo);
+        cities.add(startingCity);
+        cities.add(zanesville);
+        cities.add(pittsburgh);
+        cities.add(philly);
+        cities.add(detroit);
+        cities.add(cleveland);
+        cities.add(cincy);
+
+        // this sorts the priority queue, then for each city in the queue, output the name and distance for least to greatest
+        System.out.println("\n\n--- using a lambda (anonymous function) to loop over the priority queue ---");
+        cities.stream().sorted().forEach(city -> System.out.format("%s: %f miles away\n", city.getName(), city.getDistance()));
+
+        // This does the same thing as the above line, but this removes the cities as we loop over them
+        City city;
+        System.out.println("\n\n--- using a while loop on priority queue ---");
+        while ((city = cities.poll()) != null)
+            System.out.format("%s: %f miles away\n", city.getName(), city.getDistance());
     }
 
-    class City// implements Comparable<City>
-    {
+    class City implements Comparable<City> {
         private final String            name;
-        private final Map<City, Double> distanceTo = new HashMap<>();
+        private final Double            distance;
 
-        public City(String name)
-        {
+        public City(String name, Double distance) {
             this.name = name;
-            // the current city is always 0 miles away from itself
-            distanceTo.put(this, 0.0d);
+            this.distance = distance;
         }
-/*
-        @Override
-        public int compareTo(City city)
-        {
-            if (!distanceTo.containsKey(city) && !city.distanceTo.containsKey(this)) {
-                throw new NoSuchElementException(String.format("%s does not currently have a distance recorded between it and %s", name, city.name));
-            }
 
-            if (name.equalsIgnoreCase(city.name) && distanceTo.get(city) == 0.0d) {
+        @Override
+        public int compareTo(City city) {
+            if (Objects.equals(distance, city.distance)) {
                 return 0;
             }
 
+            if (distance < city.distance) {
+                return -1;
+            }
 
-            return 1;
-        }*/
+            if (distance > city.distance) {
+                return 1;
+            }
 
-        public boolean canTravelTo(City city) {
-            return distanceTo.containsKey(city) || city.distanceTo.containsKey(this);
+            throw new IllegalArgumentException("Cannot compare city distances");
         }
 
-        public String getName()
-        {
+        public String getName() {
             return name;
         }
 
-        public double getDistanceTo(City city)
-        {
-            if (distanceTo.containsKey(city)) {
-                return distanceTo.get(city);
-            }
-
-            if (city.distanceTo.containsKey(this)) {
-                return city.distanceTo.get(city);
-            }
-            // no distance between either city was found
-            return -1;
-        }
-
-        public void addDistanceTo(City city, double distance)
-        {
-            distanceTo.put(city, distance);
-            // we want both cities to have the distance, just in case only one does
-            city.distanceTo.put(this, distance);
-        }
-
-/*        @Override
+        @Override
         public boolean equals(Object o)
         {
             if (!(o instanceof City)) {
                 return false;
             }
             return compareTo((City) o) == 0;
-        }*/
-    }
+        }
 
-    class CityDistanceComparator implements Comparator<City> {
-
-        @Override
-        public int compare(City fromCity, City toCity)
+        public Double getDistance()
         {
-            double distance = fromCity.getDistanceTo(toCity);
-            // not finished
-
-            return fromCity.compareTo(toCity);
+            return distance;
         }
     }
 }

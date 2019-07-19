@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.collectionExamples.Queues;
 import com.company.inheritance.childClasses.Mammal;
 import com.company.inheritance.childClasses.birds.Hawk;
 import com.company.inheritance.interfaces.AnimalInterface;
@@ -233,6 +234,9 @@ public class Main
             System.out.println("current item: " + j);
             j++;
         } while (j < list.size()); // requires a semi colon at the end, unlike other loops above
+
+        var queues = new Queues();
+        queues.priorityQueue();
     }
 
     // -------- RETURNING THINGS FROM METHODS ---------
