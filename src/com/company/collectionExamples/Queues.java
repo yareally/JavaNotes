@@ -189,10 +189,22 @@ public class Queues
             System.out.format("%s: %f miles away\n", city.getName(), city.getDistance());
     }
 
+    /**
+     * This class serves just one purpose: to allow us to do a more complex sort
+     * with a priority queue. In order to do that, we have to implement the comparable interface
+     * and then tell java how we are going to compare 2 cities. In our case, we want to see which one
+     * has a greater distance than the other. The farther a city is away, the farther back in the queue it will
+     * be when we pull out cities from the queue
+     */
     class City implements Comparable<City> {
         private final String            name;
         private final Double            distance;
 
+        /**
+         *
+         * @param name - name of the city
+         * @param distance - how far away this city is from the starting city we chose
+         */
         public City(String name, Double distance) {
             this.name = name;
             this.distance = distance;
@@ -200,10 +212,12 @@ public class Queues
 
         @Override
         public int compareTo(City city) {
+            // using Objects.equals() just prevents null exceptions if something is null
             if (Objects.equals(distance, city.distance)) {
                 return 0;
             }
-
+            // if the current distance is less than the one passed in (city.distance)
+            // then return -1. This will cause the cities with smaller distances to be near the front of the queue
             if (distance < city.distance) {
                 return -1;
             }
@@ -219,6 +233,8 @@ public class Queues
             return name;
         }
 
+        // have to override equals if you use compareTo.
+        // We want to use our compareTo method we implemented to see if 2 cities are the same
         @Override
         public boolean equals(Object o)
         {
