@@ -4,8 +4,11 @@ import com.company.inheritance.childClasses.Mammal;
 import com.company.inheritance.childClasses.birds.Hawk;
 import com.company.inheritance.interfaces.AnimalInterface;
 
-import java.util.*;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 
 /**
  * ArrayLists are a special type of array that will grow or shrink if you add or remove items from it.
@@ -26,9 +29,9 @@ import java.util.Arrays;
 public class ListsAndArrays
 {
     // create a list of strings
-    private ArrayList<String> stringList = new ArrayList<>();
+    private ArrayList<String> stringList        = new ArrayList<>();
     // ArrayList implements the List interface, so it can also declare itself as a List and work the same:
-    private List<String> anotherStringList = new ArrayList<>();
+    private List<String>      anotherStringList = new ArrayList<>();
 
     // creates a fixed array of strings with buckets for strings to be stored in (each bucket it initially null)
     private String[] stringArray = new String[10];
@@ -56,6 +59,7 @@ public class ListsAndArrays
         var stringArray5 = Arrays.copyOf(stringArray4, 20);
         System.out.println("Size of stringArray5: " + stringArray5.length);
 
+        List test = List.of(0, 1, 2, 3, 10);
         // convert array to an arrayList
         List<String> arrayToList = Arrays.asList(stringArray4);
         // you can also put your own created objects into fixed arrays:
@@ -121,5 +125,27 @@ public class ListsAndArrays
 
         // this will change the value at position 2 to "100"
         stringList.set(2, "100");
+
+
+        var matrix = new int[5][5];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                matrix[i][j] = 0;
+            }
+        }
+
+        for (int[] data : matrix) {
+            for (int i = 0; i < data.length; i++) {
+                data[i] = 0;
+            }
+        }
+
+        var middleElement = matrix[2][2];
+        //|0, 0, 0, 0, 0|
+        //|0, 0, 0, 0, 0|
+        //|0, 0, 0, 0, 0|
+        //|0, 0, 0, 0, 0|
+        //|0, 0, 0, 0, 0|
+
     }
 }

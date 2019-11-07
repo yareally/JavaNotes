@@ -6,7 +6,9 @@ import com.company.inheritance.childClasses.birds.Hawk;
 import com.company.inheritance.interfaces.AnimalInterface;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Useful intellij idea commands
@@ -237,6 +239,61 @@ public class Main
 
         var queues = new Queues();
         queues.priorityQueue();
+
+
+
+        // in class examples:
+
+        // reverse an array:
+
+        // we want to reverse the values in reverseMe by storing them in reversed
+        int[] reverseMe = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        // we want to store the reversed array in reversed
+        int[] reversed = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+        // if not using a loop, you would have to do something like this:
+        // what in these 3 lines takes the place of our index counter in our loop?
+        // reversed[0] = reverseMe[reverseMe.length - 1]; // puts the 10 in the 0 position of reversed
+        // reversed[1] = reverseMe[reverseMe.length - 2]; // puts the 9 in the 1 position of reversed
+        // reversed[2] = reverseMe[reverseMe.length - 3];
+
+        for (int index = 0; index < reverseMe.length; index++) {
+            reversed[index] = reverseMe[reverseMe.length - (index + 1)];
+        }
+
+        Set<Integer> set1 = new HashSet<>();
+        Set<Integer> set2 = new HashSet<>();
+        // elements in sets must be unique. Adding another element to a set with the same data will replace the previous data instead of adding 2 elements with the same data
+        set1.add(1);
+        set1.add(2);
+        set1.add(2);
+        set1.add(3);
+        set1.add(5);
+        set1.add(8);
+        set1.add(13);
+        set1.add(30);
+        set1.add(60);
+
+        set2.add(1);
+        set2.add(2);
+        set2.add(3);
+        set2.add(3);
+        set2.add(5);
+        set2.add(8);
+        set2.add(13);
+        set2.add(21);
+        set2.add(34);
+
+        set1.retainAll(set2);
+        set1.addAll(set2);
+
+        var matrix = new int[5][5];
+        for (int index = 0; i < matrix.length; index++) {
+            for (int count = 0; count < matrix.length; count++) {
+                matrix[index][count] = 0;
+            }
+        }
+        var middleElement = matrix[2][2];
+
     }
 
     // -------- RETURNING THINGS FROM METHODS ---------
