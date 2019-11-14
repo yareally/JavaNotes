@@ -12,22 +12,20 @@ import static java.lang.System.out;
 /**
  * Maps are a collection of unique keys where each key points to a non-unique value. A real life example of a map
  * would be a dictionary. A dictionary is composed of unique words (which are keys) and each word points to a definition (the value).
- *
+ * <p>
  * Another example would be hotel rooms. Each room has a unique number. By knowing the room number, you can find the room (the value).
  *
  * @author Wes Lanning
  * @version 2019-07-11
  */
-public class Maps
-{
+public class Maps {
     // create a map with some initial values (this way only works in java 9 and above)
     private Map<String, String>              map  = Map.of("key", "value", "anotherKey", "anotherValue");
     // map2 and map3 are the same as a hash map implements the Map interface (so you can refer to it as either a Map or HashMap)
     private Map<String, String>              map2 = new HashMap<>();
     private HashMap<String, AnimalInterface> map3 = new HashMap<>();
 
-    public void UseMap()
-    {
+    public void UseMap() {
         // the following 2 lines make map2 equal to map as we put the same key/values into map2 as we have in map
         map2.put("key", "value");
         map2.put("anotherKey", "anotherValue");
@@ -63,5 +61,4 @@ public class Maps
             out.printf("Animal age: %d%n", animal.getValue().getAge());
         }
     }
-
 }
